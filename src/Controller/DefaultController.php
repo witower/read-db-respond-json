@@ -2,12 +2,24 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
 
-class DefaultController
+/**
+ * @Route("")
+ */
+class DefaultController extends AbstractController
 {
-    public function index(){
+    /**
+     * @Route("")
+     */
+    public function index()
+    {
+        $number = random_int(0,100);
 
-        return new Response("yo");
+        return $this->render('index.html.twig',
+            [
+                'number' => $number,
+            ]);
     }
 }
